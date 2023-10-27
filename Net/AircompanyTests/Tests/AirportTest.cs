@@ -25,14 +25,14 @@ namespace AircompanyTests.Tests
            new MilitaryPlane("F-15", 1500, 12000, 10000, MilitaryType.FIGHTER),
            new MilitaryPlane("F-22", 1550, 13000, 11000, MilitaryType.FIGHTER),
            new MilitaryPlane("C-130 Hercules", 650, 5000, 110000, MilitaryType.TRANSPORT)
-   };
+        };
 
-        private PassengerPlane planeWithMaxPassengerCapacity = new PassengerPlane("Boeing-747", 980, 16100, 70500, 242);
+        //private PassengerPlane planeWithMaxPassengerCapacity = new PassengerPlane("Boeing-747", 980, 16100, 70500, 242);
 
         [Test]
         public void MyTest1()
         {
-            Airport airport = new Airport(planes);
+            var airport = new Airport(planes);
             List<MilitaryPlane> transportMilitaryPlanes = airport.GetTransportMilitaryPlanes().ToList();
             bool hasMilitaryTransportPlane = false;
             foreach (MilitaryPlane militaryPlane in transportMilitaryPlanes)
@@ -48,14 +48,14 @@ namespace AircompanyTests.Tests
         [Test]
         public void MyTest2()
         {
-            Airport airport = new Airport(planes);
+            var airport = new Airport(planes);
             PassengerPlane expectedPlaneWithMaxPassengersCapacity = airport.GetPassengerPlaneWithMaxPassengersCapacity();           
         }
 
         [Test]
         public void MyTest3()
         {
-            Airport airport = new Airport(planes);
+            var airport = new Airport(planes);
             airport = airport.SortByMaxLoadCapacity();
             List<Plane> planesSortedByMaxLoadCapacity = airport.GetPlanes().ToList();
 

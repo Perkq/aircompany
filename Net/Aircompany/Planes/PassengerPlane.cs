@@ -12,13 +12,7 @@ namespace Aircompany.Planes
             _passengersCapacity = passengersCapacity;
         }
 
-        public override bool Equals(object obj)
-        {
-            var plane = obj as PassengerPlane;
-            return plane != null &&
-                   base.Equals(obj) &&
-                   _passengersCapacity == plane._passengersCapacity;
-        }
+        public override bool Equals(object obj) => obj is PassengerPlane plane && base.Equals(obj) && _passengersCapacity == plane._passengersCapacity;
 
         public override int GetHashCode()
         {
@@ -28,18 +22,9 @@ namespace Aircompany.Planes
             return hashCode;
         }
 
-        public int PassengersCapacityIs()
-        {
-            return _passengersCapacity;
-        }
-
+        public int PassengersCapacityIs() => _passengersCapacity;
        
-        public override string ToString()
-        {
-            return base.ToString().Replace("}",
-                    ", passengersCapacity=" + _passengersCapacity +
-                    '}');
-        }       
+        public override string ToString() => base.ToString().Replace("}", ", passengersCapacity=" + _passengersCapacity + '}');       
         
     }
 }
